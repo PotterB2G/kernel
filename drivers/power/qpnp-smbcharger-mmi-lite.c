@@ -7648,6 +7648,7 @@ static ssize_t force_chg_iusb_show(struct device *dev,
 	int state;
 	int ret;
 	u8 value;
+	state = 0;
 
 	if (!the_chip) {
 		pr_err("chip not valid\n");
@@ -8448,6 +8449,7 @@ static int smbchg_probe(struct spmi_device *spmi)
 	struct power_supply *usb_psy;
 	struct qpnp_vadc_chip *vadc_dev;
 
+	vadc_dev = 0;
 
 	usb_psy = power_supply_get_by_name("usb");
 	if (!usb_psy) {

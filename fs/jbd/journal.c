@@ -711,6 +711,8 @@ struct journal_head *journal_get_descriptor_buffer(journal_t *journal)
 	unsigned int blocknr;
 	int err;
 
+	blocknr = 0;
+
 	err = journal_next_log_block(journal, &blocknr);
 
 	if (err)
