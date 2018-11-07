@@ -35,8 +35,9 @@ static void ath9k_get_txgain_index(struct ath_hw *ah,
 			break;
 
 	match = ath9k_hw_get_lower_upper_index(
-			(u8)FREQ2FBIN(centers.synth_center, IS_CHAN_2GHZ(chan)),
+			(int)FREQ2FBIN(centers.synth_center, IS_CHAN_2GHZ(chan)),
 			calChans, numPiers, &idxL, &idxR);
+
 	if (match) {
 		pcdac = rawDatasetOpLoop[idxL].pcdac[0][0];
 		*pwr = rawDatasetOpLoop[idxL].pwrPdg[0][0];
